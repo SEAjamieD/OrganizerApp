@@ -1,34 +1,20 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TextInput, Dimensions } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 
-import Plus from './Plus';
-import Search from './Search';
 
 const height = Dimensions.get('window').height
 
-export default class HomeContainer extends Component<{}> {
+export default class Search extends Component<{}> {
   render() {
     return (
-      <LinearGradient
-      colors={['#ff7b00','#ffa500','#ffd000']}
-      start={{x: 0.2, y: 0}}
-      style={styles.container}>
-
-      <Plus />
-
-      <Search name={'Jamie'}/>
-
-      </LinearGradient>
+      <View style={searchStyles.searchContainer}>
+        <Text style={searchStyles.text}>Hi, {this.props.name}</Text>
+        <Text h2 style={searchStyles.textH2}>Whatcha lookin for?</Text>
+        <TextInput style={searchStyles.searchInput} />
+      </View>
     );
   }
 }
-
-styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-})
 
 searchStyles = StyleSheet.create({
   searchContainer: {
