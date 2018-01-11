@@ -5,6 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 const height = Dimensions.get('window').height
 
 import AddItemPlus from './AddItemPlus';
+import XboxOut from './XboxOut';
 
 
 export default class SingleBoxContainer extends Component<{}> {
@@ -19,6 +20,7 @@ export default class SingleBoxContainer extends Component<{}> {
       style={styles.container}>
 
         <AddItemPlus navigation={navigation}/>
+        <XboxOut navigation={navigation}/>
 
 
       </LinearGradient>
