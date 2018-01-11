@@ -6,6 +6,7 @@ import { Stack } from '../config/router';
 import Loader from './Loader';
 import HomeContainer from './home/HomeContainer';
 import BoxNaming from './boxNaming/BoxNaming';
+import SingleBoxContainer from './boxContents/SingleBoxContainer'
 
 export default class OrganizerAppContainer extends Component<{}> {
 

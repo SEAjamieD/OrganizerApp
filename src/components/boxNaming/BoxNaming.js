@@ -6,6 +6,12 @@ import BackArrow from './BackArrow';
 const height = Dimensions.get('window').height
 
 export default class BoxNaming extends Component<{}> {
+
+  nameBox = () => {
+    this.props.navigation.navigate('SingleBox');
+  }
+
+
   render() {
     const navigation = this.props.navigation;
     return (
@@ -18,7 +24,7 @@ export default class BoxNaming extends Component<{}> {
 
         <View style={styles.namingContainer}>
             <Text h2 style={styles.textH2}>Name Your Box...</Text>
-            <TextInput style={styles.namingInput} />
+            <TextInput style={styles.namingInput} onSubmitEditing={this.nameBox} />
         </View>
 
       </LinearGradient>
