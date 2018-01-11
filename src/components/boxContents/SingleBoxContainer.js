@@ -19,7 +19,7 @@ export default class SingleBoxContainer extends Component<{}> {
       start={{x: 0.2, y: 0}}
       style={styles.container}>
 
-        <AddItemPlus navigation={navigation}/>
+        <AddItemPlus navigation={navigation} />
         <XboxOut navigation={navigation}/>
 
 

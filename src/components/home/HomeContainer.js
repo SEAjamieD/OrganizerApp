@@ -12,8 +12,13 @@ const height = Dimensions.get('window').height
 
 export default class HomeContainer extends Component<{}> {
 
+
+
+
+
   render() {
     const navigation = this.props.navigation;
+
     return (
       <LinearGradient
       colors={['#ff7b00','#ffa500','#ffd000']}

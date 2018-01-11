@@ -5,9 +5,10 @@ import {NavigationActions} from 'react-navigation';
 
 export default class XboxOut extends Component<{}> {
 
-
+  //This is a work around for now to get back to home screen
   goHome = () => {
-    this.props.navigation.navigate('Home');
+    this.props.navigation.goBack(null)
+    this.props.navigation.goBack(null)
   }
 
   render() {
@@ -48,7 +49,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
-
   },
   xVertical: {
     position: 'absolute',

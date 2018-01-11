@@ -11,9 +11,9 @@ export default class BoxNaming extends Component<{}> {
     this.props.navigation.navigate('SingleBox');
   }
 
-
   render() {
     const navigation = this.props.navigation;
+
     return (
       <LinearGradient
       colors={['#ff7b00','#ffa500','#ffd000']}
