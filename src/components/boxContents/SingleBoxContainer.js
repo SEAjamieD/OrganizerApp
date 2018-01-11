@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, TextInput, Dimensions, TouchableHighlight, Image } from 'react-native';
+import { View, StyleSheet, Text, TextInput, Dimensions, TouchableHighlight, Image, FlatList } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 const height = Dimensions.get('window').height
 
 import AddItemPlus from './AddItemPlus';
 import XboxOut from './XboxOut';
-
 
 export default class SingleBoxContainer extends Component<{}> {
 
@@ -24,6 +23,13 @@ export default class SingleBoxContainer extends Component<{}> {
 
         <View style={styles.header}>
           <Text h2 style={styles.headerText}>{this.props.navigation.state.params.boxName} box</Text>
+        </View>
+
+        <View style={{flex: 1, borderColor: 'black', borderWidth: 2}}>
+        <FlatList
+              data={[{key: 'a'}, {key: 'b'}]}
+              renderItem={({item}) => <Text>{item.key}</Text>}
+              />
         </View>
 
       </LinearGradient>
