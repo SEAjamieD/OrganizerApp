@@ -9,8 +9,7 @@ export default class OrganizerAppContainer extends Component<{}> {
   render() {
     return (
       <View style={{flex: 1}}>
-        <HomeContainer />
-
+        <Loader />
       </View>
     );
   }

@@ -29,30 +29,3 @@ styles = StyleSheet.create({
     flex: 1,
   },
 })
-
-searchStyles = StyleSheet.create({
-  searchContainer: {
-    marginTop: height / 2.7,
-    height: height / 5,
-    paddingHorizontal: 20,
-  },
-  searchInput: {
-    height: 60,
-    borderBottomColor: 'white',
-    borderBottomWidth: 3,
-    fontSize: 30,
-    fontFamily: 'DDCHardware-Regular',
-    color: 'white',
-    lineHeight: 30,
-  },
-  text: {
-    fontFamily: 'DDCHardware-Regular',
-    color: 'white',
-    fontSize: 30,
-  },
-  textH2: {
-    fontFamily: 'DDCHardware-Regular',
-    color: 'white',
-    fontSize: 25
-  }
-})
