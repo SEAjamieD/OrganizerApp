@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, TextInput, Dimensions } from 'react-native';
+import { View, StyleSheet, Text, TextInput, Dimensions, TouchableHighlight, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import Plus from './Plus';
 import Search from './Search';
+import House from './House';
 
 const height = Dimensions.get('window').height
+
+
 
 export default class HomeContainer extends Component<{}> {
   render() {
@@ -19,13 +22,16 @@ export default class HomeContainer extends Component<{}> {
 
       <Search name={'Jamie'}/>
 
+      <House />
+
       </LinearGradient>
     );
   }
 }
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
 })

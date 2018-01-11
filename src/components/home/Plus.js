@@ -13,7 +13,7 @@ export default class Plus extends Component<{}> {
   }
 }
 
-plusStyles = StyleSheet.create({
+const plusStyles = StyleSheet.create({
   plusContainer: {
     position: 'absolute',
     right: 25,
@@ -28,6 +28,11 @@ plusStyles = StyleSheet.create({
     width: 80,
     height: 20,
     backgroundColor: 'white',
+    shadowColor: '#333333',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+
   },
   plusVertical: {
     position: 'absolute',
@@ -35,5 +40,9 @@ plusStyles = StyleSheet.create({
     width: 20,
     height: 80,
     backgroundColor: 'white',
+    shadowColor: '#333333',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
   }
 })

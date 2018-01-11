@@ -16,7 +16,7 @@ export default class Search extends Component<{}> {
   }
 }
 
-searchStyles = StyleSheet.create({
+const searchStyles = StyleSheet.create({
   searchContainer: {
     marginTop: height / 2.7,
     height: height / 5,
@@ -35,10 +35,16 @@ searchStyles = StyleSheet.create({
     fontFamily: 'DDCHardware-Regular',
     color: 'white',
     fontSize: 30,
+    textShadowColor: 'rgba(51, 51, 51, .2)',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 4,
   },
   textH2: {
     fontFamily: 'DDCHardware-Regular',
     color: 'white',
-    fontSize: 25
+    fontSize: 25,
+    textShadowColor: 'rgba(51, 51, 51, .2)',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 4,
   }
 })
