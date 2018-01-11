@@ -22,7 +22,7 @@ export default class OrganizerAppContainer extends Component<{}> {
 
 
   render() {
-    // this simulates loading 
+    // this simulates loading
     // let that = this;
     // setTimeout(() => {that.setState({isLoading: false})}, 3000)
     if (this.state.isLoading === true) {

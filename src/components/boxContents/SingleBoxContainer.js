@@ -22,6 +22,9 @@ export default class SingleBoxContainer extends Component<{}> {
         <AddItemPlus navigation={navigation} />
         <XboxOut navigation={navigation}/>
 
+        <View style={styles.header}>
+          <Text h2 style={styles.headerText}>{this.props.navigation.state.params.boxName} box</Text>
+        </View>
 
       </LinearGradient>
     );
@@ -31,5 +34,21 @@ export default class SingleBoxContainer extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  header: {
+    height: height / 3.75,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'black',
+  },
+  headerText: {
+    fontFamily: 'DDCHardware-Regular',
+    fontSize: 35,
+    color: 'white',
+    textShadowColor: 'rgba(51, 51, 51, .2)',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 4,
   }
 })
