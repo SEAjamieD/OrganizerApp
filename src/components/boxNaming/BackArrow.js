@@ -5,7 +5,7 @@ import { View, StyleSheet, TouchableHighlight } from 'react-native';
 export default class BackArrow extends Component<{}> {
 
   _goBack = () => {
-    this.props.navigation.goBack(null)
+    this.props.navigation.goBack(null);
     }
 
   render() {

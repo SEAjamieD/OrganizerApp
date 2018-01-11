@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, TouchableHighlight } from 'react-native';
 
+import {NavigationActions} from 'react-navigation';
+
 export default class XboxOut extends Component<{}> {
+
 
   goHome = () => {
     this.props.navigation.navigate('Home');
