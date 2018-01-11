@@ -10,7 +10,7 @@ export default class Plus extends Component<{}> {
   render() {
 
     return (
-        <TouchableHighlight style={plusStyles.button} onPress={this.addBox}>
+        <TouchableHighlight style={plusStyles.button} underlayColor="rgba(51,51,51,.1)" onPress={this.addBox}>
           <View style={plusStyles.plusContainer}>
             <View style={plusStyles.plusHorizontal} />
             <View style={plusStyles.plusVertical} />
