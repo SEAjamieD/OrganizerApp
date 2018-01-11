@@ -3,11 +3,16 @@ import { View, StyleSheet, TouchableHighlight } from 'react-native';
 
 
 export default class BackArrow extends Component<{}> {
+
+  goBack = () => {
+    this.props.navigation.navigate('Home')
+  }
+
   render() {
+
     return (
 
-
-        <TouchableHighlight style={styles.button}>
+        <TouchableHighlight style={styles.button} onPress={this.goBack}>
             <View style={styles.container}>
               <View style={styles.top} />
               <View style={styles.bottom} />

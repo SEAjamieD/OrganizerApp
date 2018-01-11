@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { Stack } from '../config/router';
 
 import Loader from './Loader';
 import HomeContainer from './home/HomeContainer';
@@ -15,7 +16,7 @@ export default class OrganizerAppContainer extends Component<{}> {
       start={{x: 0.2, y: 0}}
       style={styles.container}>
 
-        <BoxNaming />
+        <Stack />
 
       </LinearGradient>
     );
@@ -25,5 +26,6 @@ export default class OrganizerAppContainer extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'blue'
   }
 })

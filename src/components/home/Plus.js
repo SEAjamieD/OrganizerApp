@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, TouchableHighlight } from 'react-native';
 
-
 export default class Plus extends Component<{}> {
+
+  addBox = () => {
+    this.props.navigation.navigate('BoxNaming');
+  }
+
   render() {
+
     return (
-        <TouchableHighlight style={plusStyles.button}>
+        <TouchableHighlight style={plusStyles.button} onPress={this.addBox}>
           <View style={plusStyles.plusContainer}>
             <View style={plusStyles.plusHorizontal} />
             <View style={plusStyles.plusVertical} />

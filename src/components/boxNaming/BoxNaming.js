@@ -1,23 +1,27 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TextInput, Dimensions } from 'react-native';
-
+import LinearGradient from 'react-native-linear-gradient';
 import BackArrow from './BackArrow';
 
 const height = Dimensions.get('window').height
 
 export default class BoxNaming extends Component<{}> {
   render() {
+    const navigation = this.props.navigation;
     return (
-      <View style={{flex: 1}}>
+      <LinearGradient
+      colors={['#ff7b00','#ffa500','#ffd000']}
+      start={{x: 0.2, y: 0}}
+      style={{flex: 1}}>
 
-        <BackArrow />
+        <BackArrow navigation={navigation}/>
 
         <View style={styles.namingContainer}>
             <Text h2 style={styles.textH2}>Name Your Box...</Text>
             <TextInput style={styles.namingInput} />
         </View>
 
-      </View>
+      </LinearGradient>
     );
   }
 }

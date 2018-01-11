@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TextInput, Dimensions, TouchableHighlight, Image } from 'react-native';
-
+import LinearGradient from 'react-native-linear-gradient';
 
 import Plus from './Plus';
 import Search from './Search';
@@ -11,17 +11,23 @@ const height = Dimensions.get('window').height
 
 
 export default class HomeContainer extends Component<{}> {
-  render() {
-    return (
-      <View style={styles.container}>
 
-        <Plus />
+
+  render() {
+    const navigation = this.props.navigation;
+    return (
+      <LinearGradient
+      colors={['#ff7b00','#ffa500','#ffd000']}
+      start={{x: 0.2, y: 0}}
+      style={styles.container}>
+
+        <Plus navigation={navigation}/>
 
         <Search name={'Jamie'}/>
 
         <House />
 
-      </View>
+      </LinearGradient>
     );
   }
 }
