@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableHighlight } from 'react-native';
 
 
 export default class BackArrow extends Component<{}> {
   render() {
     return (
-        <View style={styles.container}>
-          <View style={styles.top} />
-          <View style={styles.bottom} />
-          <View style={styles.horizontal} />
-        </View>
+
+
+        <TouchableHighlight style={styles.button}>
+            <View style={styles.container}>
+              <View style={styles.top} />
+              <View style={styles.bottom} />
+              <View style={styles.horizontal} />
+            </View>
+        </TouchableHighlight>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  button: {
+    position: 'absolute',
+    marginTop: 35,
+    left: 25,
+    width: 80,
+    height: 80,
+  },
   container: {
     position: 'absolute',
-    left: 25,
-    marginTop: 35,
     width: 80,
     height: 80,
     overflow: 'hidden',

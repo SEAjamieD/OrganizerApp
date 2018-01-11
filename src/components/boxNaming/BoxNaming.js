@@ -13,8 +13,8 @@ export default class BoxNaming extends Component<{}> {
         <BackArrow />
 
         <View style={styles.namingContainer}>
-          <Text h2 style={styles.textH2}>Name Your Box...</Text>
-          <TextInput style={styles.namingInput} />
+            <Text h2 style={styles.textH2}>Name Your Box...</Text>
+            <TextInput style={styles.namingInput} />
         </View>
 
       </View>

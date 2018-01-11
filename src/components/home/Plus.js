@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableHighlight } from 'react-native';
 
 
 export default class Plus extends Component<{}> {
   render() {
     return (
-        <View style={plusStyles.plusContainer}>
-          <View style={plusStyles.plusHorizontal} />
-          <View style={plusStyles.plusVertical} />
-        </View>
+        <TouchableHighlight style={plusStyles.button}>
+          <View style={plusStyles.plusContainer}>
+            <View style={plusStyles.plusHorizontal} />
+            <View style={plusStyles.plusVertical} />
+          </View>
+        </TouchableHighlight>
     );
   }
 }
 
 const plusStyles = StyleSheet.create({
-  plusContainer: {
+  button: {
     position: 'absolute',
+    width: 80,
+    height: 80,
     right: 25,
     marginTop: 35,
+  },
+  plusContainer: {
+    position: 'absolute',
     width: 80,
     height: 80,
     overflow: 'hidden',
