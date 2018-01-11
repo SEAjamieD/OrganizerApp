@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 import Loader from './Loader';
 import HomeContainer from './home/HomeContainer';
+import BoxNaming from './boxNaming/BoxNaming';
 
 export default class OrganizerAppContainer extends Component<{}> {
 
   render() {
     return (
-      <View style={{flex: 1}}>
-        <HomeContainer />
-      </View>
+      <LinearGradient
+      colors={['#ff7b00','#ffa500','#ffd000']}
+      start={{x: 0.2, y: 0}}
+      style={styles.container}>
+
+        <BoxNaming />
+
+      </LinearGradient>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  }
+})
