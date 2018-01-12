@@ -43,7 +43,7 @@ export default class OrganizerAppContainer extends Component<{}> {
         start={{x: 0.2, y: 0}}
         style={styles.container}>
 
-        <Stack />
+          <Stack />
 
         </LinearGradient>
       );

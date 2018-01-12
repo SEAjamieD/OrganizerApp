@@ -1,13 +1,20 @@
 {
-  "garage": [
-    { "id": 1, "item": "tent" },
-    { "id": 2, "item": "sleeping bag" },
-    { "id": 3, "item": "lantern" },
-    { "id": 4, "item": "cooler" },
-    { "id": 5, "item": "walkie talkies" },
-    { "id": 6, "item": "batteries" },
-    { "id": 7, "item": "sleeping pad" },
-    { "id": 8, "item": "propate" },
-    { "id": 9, "item": "headlamp" }
+  "box": [
+    {
+      "id": 0,
+      "boxName": "garage"
+    },
+    {
+      "boxName": "car",
+      "id": 1
+    },
+    {
+      "boxName": "camping",
+      "id": 2
+    },
+    {
+      "boxName": "stuff",
+      "id": 3
+    }
   ]
 }
