@@ -1,0 +1,20 @@
+{
+  "box": [
+    {
+      "id": 0,
+      "boxName": "garage"
+    },
+    {
+      "boxName": "car",
+      "id": 1
+    },
+    {
+      "boxName": "camping",
+      "id": 2
+    },
+    {
+      "boxName": "stuff",
+      "id": 3
+    }
+  ]
+}

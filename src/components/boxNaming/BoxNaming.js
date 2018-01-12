@@ -6,8 +6,40 @@ import BackArrow from './BackArrow';
 const height = Dimensions.get('window').height
 
 export default class BoxNaming extends Component<{}> {
+
+  constructor() {
+    super();
+    this.state = {
+      boxName: ''
+    }
+  }
+
+  nameBox = () => {
+    if(this.state.boxName === '') return;
+    this.addToList();
+    this.props.navigation.navigate('SingleBox', {boxName: this.state.boxName});
+  }
+
+  /////////// this makes the box on the fake json-server
+  addToList() {
+  if (this.state.boxName !== '') {
+    fetch('http://localhost:3000/box', {
+      method: 'post',
+      body: JSON.stringify({
+        boxName: this.state.boxName.toLowerCase()
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    }
+  }
+
+
+
   render() {
     const navigation = this.props.navigation;
+
     return (
       <LinearGradient
       colors={['#ff7b00','#ffa500','#ffd000']}
@@ -18,7 +50,7 @@ export default class BoxNaming extends Component<{}> {
 
         <View style={styles.namingContainer}>
             <Text h2 style={styles.textH2}>Name Your Box...</Text>
-            <TextInput style={styles.namingInput} />
+            <TextInput autoFocus={true} style={styles.namingInput} onChangeText={(text) => this.setState({boxName: text})} onSubmitEditing={this.nameBox} />
         </View>
 
       </LinearGradient>
