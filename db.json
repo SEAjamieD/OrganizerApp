@@ -35,6 +35,10 @@
     {
       "boxName": "super",
       "id": 8
+    },
+    {
+      "boxName": "new box",
+      "id": 9
     }
   ]
 }

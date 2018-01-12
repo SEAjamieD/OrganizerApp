@@ -18,22 +18,6 @@ export default class SingleBoxContainer extends Component<{}> {
   }
 
 
-  // componentWillMount() {
-  // fetch('http://localhost:3000/box/', {
-  //   headers: {
-  //     'Accept': 'application/json'
-  //   }
-  // })
-  // .then(res => res.json())
-  // .then(data => {
-  //   const list = [...data]
-  //   this.setState({
-  //     list: list,
-  //   })
-  // })
-  // }
-
-
   render() {
     const navigation = this.props.navigation;
     return (
