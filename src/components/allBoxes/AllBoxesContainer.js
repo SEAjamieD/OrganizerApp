@@ -5,37 +5,43 @@ import LinearGradient from 'react-native-linear-gradient';
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
-import AddItemPlus from './AddItemPlus';
-import XboxOut from './XboxOut';
+import BackArrow from '../boxNaming/BackArrow';
 
-export default class SingleBoxContainer extends Component<{}> {
+export default class AllBoxesContainer extends Component<{}> {
 
   constructor() {
     super();
     this.state = {
       list: []
     }
+    this.goToBox = this.goToBox.bind(this);
   }
 
 
-  // componentWillMount() {
-  // fetch('http://localhost:3000/box/', {
-  //   headers: {
-  //     'Accept': 'application/json'
-  //   }
-  // })
-  // .then(res => res.json())
-  // .then(data => {
-  //   const list = [...data]
-  //   this.setState({
-  //     list: list,
-  //   })
-  // })
-  // }
+  componentWillMount() {
+  fetch('http://localhost:3000/box', {
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(data => {
+    const list = [...data]
+    this.setState({
+      list: list,
+    })
+  })
+  }
+
+  goToBox = (event) => {
+    console.log(event)
+    this.props.navigation.navigate('ExistingBox', {boxId: event})
+  }
 
 
   render() {
     const navigation = this.props.navigation;
+
     return (
       <LinearGradient
       colors={['#ff7b00','#ffa500','#ffd000']}
@@ -43,22 +49,19 @@ export default class SingleBoxContainer extends Component<{}> {
       style={styles.container}>
 
         <View style={styles.header}>
-          <Text h2 style={styles.headerText}>{this.props.navigation.state.params.boxName} box</Text>
+          <Text h2 style={styles.headerText}>Your Boxes</Text>
         </View>
 
-        <AddItemPlus navigation={navigation} />
-
-        <XboxOut navigation={navigation} />
-
+        <BackArrow navigation={navigation}/>
 
         <View style={{flex: 1}}>
         <FlatList
               style={styles.flatList}
               data={this.state.list}
               renderItem={({item}) => (
-                <View style={styles.listItem}>
-                  <Text key={item.id} style={styles.listText}>{item.item}</Text>
-                </View>
+                <TouchableHighlight style={styles.listItem} onPress={ this.goToBox.bind(this, item.id)}>
+                  <Text style={styles.listText}>{item.boxName}</Text>
+                </TouchableHighlight>
               )}
               keyExtractor={(item, index) => index} />
         </View>

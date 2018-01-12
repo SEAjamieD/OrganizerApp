@@ -4,12 +4,16 @@ import { StackNavigator } from 'react-navigation';
 import Home from '../components/home/HomeContainer';
 import BoxNaming from '../components/boxNaming/BoxNaming';
 import SingleBox from '../components/boxContents/SingleBoxContainer';
+import AllBoxes from '../components/allBoxes/AllBoxesContainer';
+import ExistingBox from '../components/boxContents/ExistingSingleBoxContainer';
 
 export const Stack = StackNavigator(
   {
     Home: {screen: Home},
     BoxNaming: {screen: BoxNaming},
-    SingleBox: {screen: SingleBox}
+    SingleBox: {screen: SingleBox},
+    AllBoxes: {screen: AllBoxes},
+    ExistingBox: {screen: ExistingBox},
   },
   {headerMode: 'none',},
 );

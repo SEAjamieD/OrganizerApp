@@ -8,30 +8,32 @@ const width = Dimensions.get('window').width;
 import AddItemPlus from './AddItemPlus';
 import XboxOut from './XboxOut';
 
-export default class SingleBoxContainer extends Component<{}> {
+export default class ExistingSingleBoxContainer extends Component<{}> {
 
   constructor() {
     super();
     this.state = {
+      boxName: '',
       list: []
     }
   }
 
 
-  // componentWillMount() {
-  // fetch('http://localhost:3000/box/', {
-  //   headers: {
-  //     'Accept': 'application/json'
-  //   }
-  // })
-  // .then(res => res.json())
-  // .then(data => {
-  //   const list = [...data]
-  //   this.setState({
-  //     list: list,
-  //   })
-  // })
-  // }
+  componentWillMount() {
+  fetch(`http://localhost:3000/box/${this.props.navigation.state.params.boxId}`, {
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(data => {
+    const list = [...data]
+    this.setState({
+      list: list,
+      boxName: data.boxName,
+    })
+  })
+  }
 
 
   render() {
@@ -43,7 +45,7 @@ export default class SingleBoxContainer extends Component<{}> {
       style={styles.container}>
 
         <View style={styles.header}>
-          <Text h2 style={styles.headerText}>{this.props.navigation.state.params.boxName} box</Text>
+          <Text h2 style={styles.headerText}>{this.state.boxName} box</Text>
         </View>
 
         <AddItemPlus navigation={navigation} />

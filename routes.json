@@ -3,5 +3,6 @@
   "/box/get/:id": "/box/:id",
   "/box/create": "/box",
   "/box/update/:id": "/box/:id",
-  "/box/delete/:id": "/box/:id"
+  "/box/delete/:id": "/box/:id",
+  "/box/:id/create": "/box/:id"
 }

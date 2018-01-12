@@ -29,7 +29,7 @@ export default class HomeContainer extends Component<{}> {
 
         <Search name={'Jamie'}/>
 
-        <House />
+        <House navigation={navigation}/>
 
       </LinearGradient>
     );
