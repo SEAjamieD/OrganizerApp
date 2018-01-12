@@ -31,7 +31,7 @@ export default class SingleBoxContainer extends Component<{}> {
       list: list,
     })
   })
-}
+  }
 
 
   render() {
@@ -42,19 +42,19 @@ export default class SingleBoxContainer extends Component<{}> {
       start={{x: 0.2, y: 0}}
       style={styles.container}>
 
-        <AddItemPlus navigation={navigation} />
-        <XboxOut navigation={navigation}/>
-
         <View style={styles.header}>
           <Text h2 style={styles.headerText}>{this.props.navigation.state.params.boxName} box</Text>
         </View>
+        <AddItemPlus navigation={navigation} />
+        <XboxOut navigation={navigation}/>
+
 
         <View style={{flex: 1}}>
         <FlatList
               style={styles.flatList}
               data={this.state.list}
               renderItem={({item}) => (
-                <View key={item.id} style={styles.listItem}>
+                <View style={styles.listItem}>
                   <Text key={item.id} style={styles.listText}>{item.item}</Text>
                 </View>
               )}

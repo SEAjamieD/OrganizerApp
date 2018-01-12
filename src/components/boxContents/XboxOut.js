@@ -7,6 +7,7 @@ export default class XboxOut extends Component<{}> {
 
   //This is a work around for now to get back to home screen
   goHome = () => {
+    console.log('working?')
     this.props.navigation.goBack(null)
     this.props.navigation.goBack(null)
   }

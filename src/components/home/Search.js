@@ -10,7 +10,7 @@ export default class Search extends Component<{}> {
       <View style={searchStyles.searchContainer}>
         <Text style={searchStyles.text}>Hi, {this.props.name}</Text>
         <Text h2 style={searchStyles.textH2}>Whatcha lookin for?</Text>
-        <TextInput style={searchStyles.searchInput} />
+        <TextInput style={searchStyles.searchInput} autoFocus={true}/>
       </View>
     );
   }
