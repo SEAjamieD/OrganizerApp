@@ -39,6 +39,10 @@
     {
       "boxName": "new box",
       "id": 9
+    },
+    {
+      "boxName": "car",
+      "id": 10
     }
   ]
 }
