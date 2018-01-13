@@ -16,11 +16,12 @@ export default class PhotoReviewContainer extends Component<{}> {
       colors={['#ff7b00','#ffa500','#ffd000']}
       start={{x: 0.2, y: 0}}
       style={styles.container}>
-
-        <Image
-            style={styles.image}
-            source={{uri: this.props.navigation.state.params.currentSnapUri}}
-            />
+        <View style={styles.imageShadow}>
+          <Image
+              style={styles.image}
+              source={{uri: this.props.navigation.state.params.currentSnapUri}}
+              />
+        </View>
 
       </LinearGradient>
     )
@@ -34,9 +35,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    marginTop: 20,
+    width: setWidth,
+    height: setWidth,
+  },
+  imageShadow: {
+    backgroundColor: 'transparent',
+    marginTop: 30,
     alignSelf: 'center',
     width: setWidth,
     height: setWidth,
+    shadowColor: '#333333',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
   }
 })

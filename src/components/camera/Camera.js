@@ -8,20 +8,12 @@ const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
 export default class CameraScreen extends Component<{}> {
-  constructor() {
-    super();
-    this.state = {
-      currentSnapUri: ''
-    }
-  }
 
   takePicture = () => {
     const options = {};
     this.camera.capture()
       .then((data) => this.props.navigation.navigate('PhotoReviewContainer', {currentSnapUri: data.path}))
       .catch(err => console.error(err));
-
-    // this.props.navigation.navigate('PhotoReviewContainer', {currentSnapUri: this.state.currentSnapUri});
   }
 
   render() {
