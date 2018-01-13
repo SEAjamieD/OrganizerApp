@@ -11,15 +11,17 @@ export default class CameraScreen extends Component<{}> {
   constructor() {
     super();
     this.state = {
-      currentSnapPath: ''
+      currentSnapUri: ''
     }
   }
 
   takePicture = () => {
     const options = {};
     this.camera.capture()
-      .then((data) => console.log(data))
+      .then((data) => this.props.navigation.navigate('PhotoReviewContainer', {currentSnapUri: data.path}))
       .catch(err => console.error(err));
+
+    // this.props.navigation.navigate('PhotoReviewContainer', {currentSnapUri: this.state.currentSnapUri});
   }
 
   render() {
@@ -32,6 +34,7 @@ export default class CameraScreen extends Component<{}> {
               this.camera = cam;
             }}
             style={styles.preview}
+            captureTarget={Camera.constants.CaptureTarget.disk}
             aspect={Camera.constants.Aspect.fill}>
 
             <BackArrow navigation={navigation} />

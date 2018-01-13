@@ -7,6 +7,7 @@ import SingleBox from '../components/boxContents/SingleBoxContainer';
 import AllBoxes from '../components/allBoxes/AllBoxesContainer';
 import ExistingBox from '../components/boxContents/ExistingSingleBoxContainer';
 import CameraScreen from '../components/camera/Camera';
+import PhotoReviewContainer from '../components/reviewPhoto/PhotoReviewContainer';
 
 export const Stack = StackNavigator(
   {
@@ -18,6 +19,7 @@ export const Stack = StackNavigator(
     AllBoxes: {screen: AllBoxes},
     ExistingBox: {screen: ExistingBox},
     CameraScreen: {screen: CameraScreen},
+    PhotoReviewContainer: {screen: PhotoReviewContainer},
   },
   {headerMode: 'none',},
 );
