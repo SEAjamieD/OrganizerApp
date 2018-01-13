@@ -15,34 +15,6 @@
     {
       "boxName": "stuff",
       "id": 3
-    },
-    {
-      "boxName": "search",
-      "id": 4
-    },
-    {
-      "boxName": "football",
-      "id": 5
-    },
-    {
-      "boxName": "things",
-      "id": 6
-    },
-    {
-      "boxName": "tag",
-      "id": 7
-    },
-    {
-      "boxName": "super",
-      "id": 8
-    },
-    {
-      "boxName": "new box",
-      "id": 9
-    },
-    {
-      "boxName": "car",
-      "id": 10
     }
   ]
 }
