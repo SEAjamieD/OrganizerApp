@@ -12,7 +12,9 @@ export const Stack = StackNavigator(
   {
     Home: {screen: Home},
     BoxNaming: {screen: BoxNaming},
-    SingleBox: {screen: SingleBox},
+    SingleBox: {screen: SingleBox,
+          navigationOptions: {gesturesEnabled: false}
+        },
     AllBoxes: {screen: AllBoxes},
     ExistingBox: {screen: ExistingBox},
     CameraScreen: {screen: CameraScreen},
