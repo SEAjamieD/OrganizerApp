@@ -3,8 +3,8 @@ import { View, StyleSheet, TouchableHighlight } from 'react-native';
 
 export default class AddItemPlus extends Component<{}> {
 
-  addBox = () => {
-    this.props.navigation.navigate('addItem');
+  addItem = () => {
+    this.props.navigation.navigate('CameraScreen');
   }
 
   render() {

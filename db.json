@@ -15,6 +15,18 @@
     {
       "boxName": "stuff",
       "id": 3
+    },
+    {
+      "boxName": "camping",
+      "id": 4
+    },
+    {
+      "boxName": "a box",
+      "id": 5
+    },
+    {
+      "boxName": "cool",
+      "id": 6
     }
   ]
 }
