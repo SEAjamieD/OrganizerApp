@@ -27,6 +27,10 @@
     {
       "boxName": "cool",
       "id": 6
+    },
+    {
+      "boxName": "school",
+      "id": 7
     }
   ]
 }

@@ -8,6 +8,12 @@ const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
 export default class CameraScreen extends Component<{}> {
+  constructor() {
+    super();
+    this.state = {
+      currentSnapPath: ''
+    }
+  }
 
   takePicture = () => {
     const options = {};
