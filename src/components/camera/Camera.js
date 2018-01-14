@@ -4,8 +4,11 @@ import Camera from 'react-native-camera';
 
 import BackArrow from '../boxNaming/BackArrow';
 
+
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
+
+
 
 export default class CameraScreen extends Component<{}> {
 

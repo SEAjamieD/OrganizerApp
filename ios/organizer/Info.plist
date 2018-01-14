@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string/>
 	<key>NSCameraUsageDescription</key>
 	<string>This app lets users take a photo to store online for cataloguing purposes.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
@@ -45,7 +45,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>

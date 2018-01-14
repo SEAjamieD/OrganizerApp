@@ -8,6 +8,7 @@ const setWidth = width - 40;
 
 export default class PhotoReviewContainer extends Component<{}> {
 
+
 /// needs fix -> double go back is not cool
   returnToBox = () => {
     this.props.navigation.goBack(null);
