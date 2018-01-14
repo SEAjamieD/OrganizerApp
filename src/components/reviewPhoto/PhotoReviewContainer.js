@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, Dimensions } from 'react-native';
+import { View, StyleSheet, Image, Dimensions, TouchableHighlight, Text } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 const height = Dimensions.get('window').height;
@@ -7,6 +7,12 @@ const width = Dimensions.get('window').width;
 const setWidth = width - 40;
 
 export default class PhotoReviewContainer extends Component<{}> {
+
+/// needs fix -> double go back is not cool
+  returnToBox = () => {
+    this.props.navigation.goBack(null);
+    this.props.navigation.goBack(null);
+  }
 
 
   render() {
@@ -22,6 +28,11 @@ export default class PhotoReviewContainer extends Component<{}> {
               source={{uri: this.props.navigation.state.params.currentSnapUri}}
               />
         </View>
+
+
+        <TouchableHighlight style={styles.button} onPress={this.returnToBox} underlayColor='yellow' >
+          <Text style={styles.text}>Store It</Text>
+        </TouchableHighlight>
 
       </LinearGradient>
     )
@@ -48,5 +59,20 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
+  },
+  button: {
+    position: 'absolute',
+    bottom: 30,
+    width: setWidth,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+    backgroundColor: 'white',
+  },
+  text: {
+    fontFamily: 'DDCHardware-Regular',
+    fontSize: 30,
+    color: 'orange',
   }
 })
