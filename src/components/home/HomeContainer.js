@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, TextInput, Dimensions, TouchableHighlight, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+// Initialize Firebase
+import * as firebase from 'firebase';
+// FIREBASE INITIALIZER HERE
+// const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+
 import Plus from './Plus';
 import Search from './Search';
 import House from './House';
