@@ -6,6 +6,7 @@ db.json
 
 #env
 .env
+FirebaseKeys.js
 
 # Xcode
 #
