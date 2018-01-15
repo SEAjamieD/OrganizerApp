@@ -71,10 +71,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 50,
     backgroundColor: 'white',
+    shadowColor: '#333333',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
   },
   text: {
     fontFamily: 'DDCHardware-Regular',
     fontSize: 30,
-    color: 'orange',
+    color: '#ff7b00',
   }
 })
