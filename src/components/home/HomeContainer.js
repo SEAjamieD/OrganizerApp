@@ -5,7 +5,10 @@ import LinearGradient from 'react-native-linear-gradient';
 // Initialize Firebase
 import * as firebase from 'firebase';
 // FIREBASE INITIALIZER HERE
-// const firebaseApp = firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 
 import Plus from './Plus';
