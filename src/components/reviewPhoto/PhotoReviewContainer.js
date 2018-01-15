@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Image, Dimensions, TouchableHighlight, Text } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 const setWidth = width - 40;
