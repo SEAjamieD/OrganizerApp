@@ -9,13 +9,27 @@ const setWidth = width - 40;
 
 export default class Login extends Component<{}> {
 
+  constructor() {
+    super();
+    this.state = {
+      email: '',
+      password: ''
+    }
+  }
+
+  signUp = () => {
+    console.warn(this.state.email)
+    console.warn(this.state.password)
+  }
+
   login = () => {
     console.warn("logging in")
 
       fetch('http://localhost:5000/api/v1/auth/sign-up', {
         method: 'post',
         body: JSON.stringify({
-          boxName: this.state.boxName.toLowerCase()
+          email: this.state.email,
+          password: this.state.password
         }),
         headers: {
           'Content-Type': 'application/json'
@@ -33,10 +47,14 @@ export default class Login extends Component<{}> {
 
         <View style={styles.inputBox}>
           <TextInput style={styles.emailInput}
-            placeholder={'e-mail'}/>
+            placeholder={'e-mail'}
+            onChangeText={(text) => this.setState({email: text})}
+            />
 
           <TextInput style={styles.passwordInput}
-            placeholder={'password'}/>
+            placeholder={'password'}
+            onChangeText={(text) => this.setState({password: text})}
+            />
         </View>
 
         <View style={styles.buttonBox}>
@@ -61,7 +79,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   buttonBox: {
-    flex: .35
+    flex: .35,
   },
   loginButton: {
     width: setWidth,
