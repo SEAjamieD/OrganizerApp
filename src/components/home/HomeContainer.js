@@ -5,24 +5,10 @@ import LinearGradient from 'react-native-linear-gradient';
 import Plus from './Plus';
 import Search from './Search';
 import House from './House';
-// Initialize Firebase
-import * as firebase from 'firebase';
-// FIREBASE INITIALIZER HERE
-import FirebaseKeys from '../../../FirebaseKeys';
-// Initialize Firebase
-const firebaseApp = firebase.initializeApp(FirebaseKeys);
-
-
 
 const height = Dimensions.get('window').height
 
-
-
 export default class HomeContainer extends Component<{}> {
-
-
-
-
 
   render() {
     const navigation = this.props.navigation;
