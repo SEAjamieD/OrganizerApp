@@ -33,20 +33,13 @@ export default class Login extends Component<{}> {
   }
 
   navigateToHome = () => {
-    console.log( (this.state.user).user.user.email )
-    console.log(this.state.email)
-    console.log(this.state.user)
-    if ( (this.state.user).user.user.email === this.state.email) {
+    // console.log( (this.state.user).user.email )
+    // console.log(this.state.email)
+    // console.log(this.state.user)
+    if ( (this.state.user).user.email === this.state.email) {
       this.props.navigation.navigate('Home', {user: this.state.user})
-    } else {
-      Alert.alert(
-        'Whoops!',
-        'Incorrect email/password combo',
-        [
-          {text: 'OK', onPress: () => console.log('OK Pressed')}
-        ]
-      )
     }
+    this.clearInputs()
   } //end navigate home
 
   signUp = () => {
@@ -76,12 +69,21 @@ export default class Login extends Component<{}> {
       })
       .then(res => res.json())
       .then(data => {
-        this.setState({user: data})
-      })
-      .then(this.navigateToHome)
-      .then(this.clearInputs)
+        if(!data.err) {
+          this.setState({user: data})
+          this.navigateToHome()
 
-  }
+        } else {
+          Alert.alert(
+            'Whoops!',
+            `${data.err.message}`,
+            [
+              {text: 'OK', onPress: () => console.log('OK Pressed')}
+            ]
+          )
+        }
+      })
+  } //end login
 
   render() {
 
