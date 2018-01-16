@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, TouchableHighlight, Text, TextInput, Dimensions } from 'react-native';
+import { View, StyleSheet, TouchableHighlight, Text, TextInput, Dimensions, Alert } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 
@@ -13,19 +13,58 @@ export default class Login extends Component<{}> {
     super();
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      user: null
     }
   }
 
-  signUp = () => {
-    console.warn(this.state.email)
-    console.warn(this.state.password)
+  handleErrors = (response) => {
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+    return response;
   }
 
-  login = () => {
-    console.warn("logging in")
+  clearInputs = () => {
+    this.setState({
+      email: '',
+      password: ''
+    })
+  }
 
-      fetch('http://localhost:5000/api/v1/auth/sign-up', {
+  navigateToHome = () => {
+    console.log( (this.state.user).user.user.email )
+    console.log(this.state.email)
+    console.log(this.state.user)
+    if ( (this.state.user).user.user.email === this.state.email) {
+      this.props.navigation.navigate('Home', {user: this.state.user})
+    } else {
+      Alert.alert(
+        'Whoops!',
+        'Incorrect email/password combo',
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed')}
+        ]
+      )
+    }
+  } //end navigate home
+
+  signUp = () => {
+    fetch('http://localhost:5000/api/v1/auth/sign-up', {
+      method: 'post',
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+
+
+  login = () => {
+      fetch('http://localhost:5000/api/v1/auth/login', {
         method: 'post',
         body: JSON.stringify({
           email: this.state.email,
@@ -35,6 +74,13 @@ export default class Login extends Component<{}> {
           'Content-Type': 'application/json'
         }
       })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({user: data})
+      })
+      .then(this.navigateToHome)
+      .then(this.clearInputs)
+
   }
 
   render() {
@@ -48,11 +94,13 @@ export default class Login extends Component<{}> {
         <View style={styles.inputBox}>
           <TextInput style={styles.emailInput}
             placeholder={'e-mail'}
-            onChangeText={(text) => this.setState({email: text})}
+            value={this.state.email}
+            onChangeText={(text) => this.setState({email: text.toLowerCase()})}
             />
 
           <TextInput style={styles.passwordInput}
             placeholder={'password'}
+            value={this.state.password}
             onChangeText={(text) => this.setState({password: text})}
             />
         </View>

@@ -12,8 +12,12 @@ import PhotoReviewContainer from '../components/reviewPhoto/PhotoReviewContainer
 
 export const Stack = StackNavigator(
   {
-    Login: {screen: Login},
-    Home: {screen: Home},
+    Login: {screen: Login,
+          navigationOptions: {gesturesEnabled: false}
+        },
+    Home: {screen: Home,
+          navigationOptions: {gesturesEnabled: false}
+        },
     BoxNaming: {screen: BoxNaming},
     SingleBox: {screen: SingleBox,
           navigationOptions: {gesturesEnabled: false}

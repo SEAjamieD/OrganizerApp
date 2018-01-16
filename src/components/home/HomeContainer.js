@@ -8,10 +8,14 @@ import House from './House';
 
 const height = Dimensions.get('window').height
 
+
 export default class HomeContainer extends Component<{}> {
 
   render() {
     const navigation = this.props.navigation;
+    const user = (this.props.navigation.state.params.user).user
+
+    console.log(user);
 
     return (
       <LinearGradient
@@ -21,7 +25,7 @@ export default class HomeContainer extends Component<{}> {
 
         <Plus navigation={navigation}/>
 
-        <Search name={'Jamie'}/>
+        <Search name={user.user.email}/>
 
         <House navigation={navigation}/>
 
