@@ -18,13 +18,6 @@ export default class Login extends Component<{}> {
     }
   }
 
-  handleErrors = (response) => {
-    if (!response.ok) {
-      throw Error(response.statusText);
-    }
-    return response;
-  }
-
   clearInputs = () => {
     this.setState({
       email: '',
@@ -33,12 +26,15 @@ export default class Login extends Component<{}> {
   }
 
   navigateToHome = () => {
-    // console.log( (this.state.user).user.email )
-    // console.log(this.state.email)
-    // console.log(this.state.user)
+    // console.warn( (this.state.user).user.email )
+    // console.warn(this.state.email)
+    // console.warn(this.state.password)
+    // console.warn(this.state.user)
+
     if ( (this.state.user).user.email === this.state.email) {
       this.props.navigation.navigate('Home', {user: this.state.user})
     }
+
     this.clearInputs()
   } //end navigate home
 
@@ -69,7 +65,7 @@ export default class Login extends Component<{}> {
       })
       .then(res => res.json())
       .then(data => {
-        if(!data.err) {
+        if(data) {
           this.setState({user: data})
           this.navigateToHome()
 
@@ -102,6 +98,7 @@ export default class Login extends Component<{}> {
 
           <TextInput style={styles.passwordInput}
             placeholder={'password'}
+            secureTextEntry={true}
             value={this.state.password}
             onChangeText={(text) => this.setState({password: text})}
             />

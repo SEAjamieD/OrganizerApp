@@ -13,9 +13,9 @@ export default class HomeContainer extends Component<{}> {
 
   render() {
     const navigation = this.props.navigation;
-    const user = (this.props.navigation.state.params.user)
-
-    console.log(user);
+    // const user = (this.props.navigation.state.params.user)
+    //
+    // console.log(user);
 
     return (
       <LinearGradient
@@ -25,7 +25,7 @@ export default class HomeContainer extends Component<{}> {
 
         <Plus navigation={navigation}/>
 
-        <Search name={user.user.email}/>
+        <Search name={'jamie'}/>
 
         <House navigation={navigation}/>
 
