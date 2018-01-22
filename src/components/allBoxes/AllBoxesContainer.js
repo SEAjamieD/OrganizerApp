@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TextInput, Dimensions, TouchableHighlight, Image, FlatList } from 'react-native';
+import { API_ROUTE } from '../../../fireRoutes';
 import LinearGradient from 'react-native-linear-gradient';
 
 const height = Dimensions.get('window').height;
@@ -19,7 +20,7 @@ export default class AllBoxesContainer extends Component<{}> {
 
 
   componentWillMount() {
-  fetch('https://us-central1-fireorganizer-9e2d4.cloudfunctions.net/boxes')
+  fetch(`${API_ROUTE}/boxes`)
     .then(res => res.json())
     .then(data => {
       let list = Object.keys(data)

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TextInput, Dimensions, TouchableHighlight, Image, FlatList } from 'react-native';
+import { API_ROUTE } from '../../../fireRoutes';
 import LinearGradient from 'react-native-linear-gradient';
 
 const height = Dimensions.get('window').height;
@@ -21,7 +22,7 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
 
   componentWillMount() {
     // console.log(this.props.navigation.state.params.boxId);
-  fetch(`https://us-central1-fireorganizer-9e2d4.cloudfunctions.net/boxes/${this.props.navigation.state.params.boxId}`)
+  fetch(`${API_ROUTE}/boxes/${this.props.navigation.state.params.boxId}`)
     .then(res => res.json())
     .then(data => {
       const list = Object.keys(data);
