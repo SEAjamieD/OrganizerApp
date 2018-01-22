@@ -23,7 +23,7 @@ export default class AllBoxesContainer extends Component<{}> {
   fetch(`${API_ROUTE}/boxes`)
     .then(res => res.json())
     .then(data => {
-      let list = Object.keys(data)
+      let list = Object.entries(data).map(array => array[1].boxName);
       this.setState({list: [...list]})
     })
   }
