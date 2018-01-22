@@ -23,7 +23,9 @@ export default class AllBoxesContainer extends Component<{}> {
   fetch(`${API_ROUTE}/boxes`)
     .then(res => res.json())
     .then(data => {
-      let list = Object.entries(data).map(array => array[1].boxName);
+      let list = Object.entries(data).map((array) => {
+        return [array[0],array[1].boxName]
+      });
       this.setState({list: [...list]})
     })
   }
@@ -54,8 +56,8 @@ export default class AllBoxesContainer extends Component<{}> {
               style={styles.flatList}
               data={this.state.list}
               renderItem={({item}) => (
-                <TouchableHighlight style={styles.listItem} onPress={ this.goToBox.bind(this, item)}>
-                  <Text style={styles.listText}>{item}</Text>
+                <TouchableHighlight style={styles.listItem} onPress={ this.goToBox.bind(this, item[0])}>
+                  <Text style={styles.listText}>{item[1]}</Text>
                 </TouchableHighlight>
               )}
               keyExtractor={(item, index) => index} />

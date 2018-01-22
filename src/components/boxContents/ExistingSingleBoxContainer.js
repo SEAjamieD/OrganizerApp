@@ -21,16 +21,22 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
 
 
   componentWillMount() {
-  fetch(`${API_ROUTE}/boxes/${this.props.navigation.state.params.boxId}`)
+    const boxId = this.props.navigation.state.params.boxId
+
+  fetch(`${API_ROUTE}/boxes/${boxId}`)
     .then(res => res.json())
     .then(data => {
-      const list = Object.keys(data);
-      console.log(list);
+      const list = Object.entries(data.contents).map(array => [array[0], array[1].itemName])
+      console.log(list)
       this.setState({
         list: [...list],
-        boxName: this.props.navigation.state.params.boxId,
+        boxName: data.boxName,
       })
     })
+  }
+
+  componentDidMount() {
+    console.log(this.state.list)
   }
 
 
@@ -57,7 +63,7 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
               data={this.state.list}
               renderItem={({item}) => (
                 <View style={styles.listItem}>
-                  <Text key={item.id} style={styles.listText}>{item}</Text>
+                  <Text key={item[0]} style={styles.listText}>{item[1]}</Text>
                 </View>
               )}
               keyExtractor={(item, index) => index} />
