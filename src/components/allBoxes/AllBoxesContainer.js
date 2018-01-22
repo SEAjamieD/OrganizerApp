@@ -19,18 +19,12 @@ export default class AllBoxesContainer extends Component<{}> {
 
 
   componentWillMount() {
-  fetch('http://localhost:3000/box', {
-    headers: {
-      'Accept': 'application/json'
-    }
-  })
-  .then(res => res.json())
-  .then(data => {
-    const list = [...data]
-    this.setState({
-      list: list,
+  fetch('https://us-central1-fireorganizer-9e2d4.cloudfunctions.net/boxes')
+    .then(res => res.json())
+    .then(data => {
+      let list = Object.keys(data)
+      this.setState({list: [...list]})
     })
-  })
   }
 
   goToBox = (event) => {
@@ -60,7 +54,7 @@ export default class AllBoxesContainer extends Component<{}> {
               data={this.state.list}
               renderItem={({item}) => (
                 <TouchableHighlight style={styles.listItem} onPress={ this.goToBox.bind(this, item.id)}>
-                  <Text style={styles.listText}>{item.boxName}</Text>
+                  <Text style={styles.listText}>{item}</Text>
                 </TouchableHighlight>
               )}
               keyExtractor={(item, index) => index} />
