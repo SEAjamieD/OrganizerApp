@@ -23,8 +23,8 @@ export default class BoxNaming extends Component<{}> {
   /////////// this makes the box on the fake json-server
   addToList() {
   if (this.state.boxName !== '') {
-    fetch('http://localhost:3000/box', {
-      method: 'post',
+    fetch('https://us-central1-fireorganizer-9e2d4.cloudfunctions.net/boxes', {
+      method: 'POST',
       body: JSON.stringify({
         boxName: this.state.boxName.toLowerCase()
       }),
