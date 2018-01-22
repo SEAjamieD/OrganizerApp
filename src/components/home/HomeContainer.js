@@ -14,8 +14,6 @@ export default class HomeContainer extends Component<{}> {
   render() {
     const navigation = this.props.navigation;
     // const user = (this.props.navigation.state.params.user)
-    //
-    // console.log(user);
 
     return (
       <LinearGradient

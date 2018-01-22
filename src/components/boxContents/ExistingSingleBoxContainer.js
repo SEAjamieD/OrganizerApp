@@ -21,7 +21,6 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
 
 
   componentWillMount() {
-    // console.log(this.props.navigation.state.params.boxId);
   fetch(`${API_ROUTE}/boxes/${this.props.navigation.state.params.boxId}`)
     .then(res => res.json())
     .then(data => {
