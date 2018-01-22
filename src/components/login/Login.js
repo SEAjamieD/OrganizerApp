@@ -31,11 +31,11 @@ export default class Login extends Component<{}> {
     // console.warn(this.state.password)
     // console.warn(this.state.user)
 
-    if ( (this.state.user).user.email === this.state.email) {
-      this.props.navigation.navigate('Home', {user: this.state.user})
-    }
-
-    this.clearInputs()
+    // if ( (this.state.user).user.email === this.state.email) {
+    //   this.props.navigation.navigate('Home', {user: this.state.user})
+    // }
+    //
+    // this.clearInputs()
   } //end navigate home
 
   signUp = () => {

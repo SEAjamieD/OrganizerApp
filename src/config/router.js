@@ -12,9 +12,9 @@ import PhotoReviewContainer from '../components/reviewPhoto/PhotoReviewContainer
 
 export const Stack = StackNavigator(
   {
-    Login: {screen: Login,
-          navigationOptions: {gesturesEnabled: false}
-        },
+    // Login: {screen: Login,
+    //       navigationOptions: {gesturesEnabled: false}
+    //     },
     Home: {screen: Home,
           navigationOptions: {gesturesEnabled: false}
         },
