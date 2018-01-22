@@ -53,7 +53,7 @@ export default class AllBoxesContainer extends Component<{}> {
               style={styles.flatList}
               data={this.state.list}
               renderItem={({item}) => (
-                <TouchableHighlight style={styles.listItem} onPress={ this.goToBox.bind(this, item.id)}>
+                <TouchableHighlight style={styles.listItem} onPress={ this.goToBox.bind(this, item)}>
                   <Text style={styles.listText}>{item}</Text>
                 </TouchableHighlight>
               )}

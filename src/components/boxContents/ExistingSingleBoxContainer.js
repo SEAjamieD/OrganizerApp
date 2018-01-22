@@ -20,19 +20,17 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
 
 
   componentWillMount() {
-  fetch(`http://localhost:3000/box/${this.props.navigation.state.params.boxId}`, {
-    headers: {
-      'Accept': 'application/json'
-    }
-  })
-  .then(res => res.json())
-  .then(data => {
-    const list = [...data]
-    this.setState({
-      list: list,
-      boxName: data.boxName,
+    // console.log(this.props.navigation.state.params.boxId);
+  fetch(`https://us-central1-fireorganizer-9e2d4.cloudfunctions.net/boxes/${this.props.navigation.state.params.boxId}`)
+    .then(res => res.json())
+    .then(data => {
+      const list = Object.keys(data);
+      console.log(list);
+      this.setState({
+        list: [...list],
+        boxName: this.props.navigation.state.params.boxId,
+      })
     })
-  })
   }
 
 
@@ -59,7 +57,7 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
               data={this.state.list}
               renderItem={({item}) => (
                 <View style={styles.listItem}>
-                  <Text key={item.id} style={styles.listText}>{item.item}</Text>
+                  <Text key={item.id} style={styles.listText}>{item}</Text>
                 </View>
               )}
               keyExtractor={(item, index) => index} />
