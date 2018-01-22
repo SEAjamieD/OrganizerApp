@@ -10,14 +10,15 @@ export default class BoxNaming extends Component<{}> {
   constructor() {
     super();
     this.state = {
-      boxName: ''
+      boxName: '',
+      boxId: ''
     }
   }
 
   nameBox = () => {
     if(this.state.boxName === '') return;
     this.addToList();
-    this.props.navigation.navigate('SingleBox', {boxName: this.state.boxName});
+
   }
 
   /////////// this makes the box on the fake json-server
@@ -32,6 +33,11 @@ export default class BoxNaming extends Component<{}> {
         'Content-Type': 'application/json'
       }
     })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.props.navigation.navigate('ExistingBox', {boxName: this.state.boxName, boxId: data.id});
+      })
     }
   }
 

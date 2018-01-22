@@ -23,16 +23,16 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
   componentWillMount() {
     const boxId = this.props.navigation.state.params.boxId
 
-  fetch(`${API_ROUTE}/boxes/${boxId}`)
-    .then(res => res.json())
-    .then(data => {
-      const list = Object.entries(data.contents).map(array => [array[0], array[1].itemName])
-      console.log(list)
-      this.setState({
-        list: [...list],
-        boxName: data.boxName,
+    fetch(`${API_ROUTE}/boxes/${boxId}`)
+      .then(res => res.json())
+      .then(data => {
+        const list = Object.entries(data.contents).map(array => [array[0], array[1].itemName])
+        console.log(list)
+        this.setState({
+          list: [...list],
+          boxName: data.boxName,
+        })
       })
-    })
   }
 
   componentDidMount() {
