@@ -73,7 +73,7 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
               data={this.state.list}
               renderItem={({item}) => (
                 <View style={styles.listItem}>
-                  <Text key={item[0]} style={styles.listText}>{item}</Text>
+                  <Text style={styles.listText}>{item}</Text>
                 </View>
               )}
               keyExtractor={(item, index) => index} />

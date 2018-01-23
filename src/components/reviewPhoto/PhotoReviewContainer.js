@@ -37,10 +37,6 @@ export default class PhotoReviewContainer extends Component<{}> {
         'Content-Type': 'application/json'
       }
     })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      })
   }
 
 
