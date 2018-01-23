@@ -11,18 +11,18 @@ const setWidth = width - 40;
 export default class PhotoReviewContainer extends Component<{}> {
 
 
-/// needs fix -> double go back is not cool
   returnToBox = () => {
+    let boxId = this.props.navigation.state.params.boxId;
+
     this.storeImage();
-    this.props.navigation.goBack(null);
-    this.props.navigation.goBack(null);
+    this.props.navigation.navigate('ExistingBox', {boxId: boxId});
   }
 
 
   storeImage = () => {
 
-    let image = this.props.navigation.state.params.currentSnapUri;
     let boxId = this.props.navigation.state.params.boxId;
+    let image = this.props.navigation.state.params.currentSnapUri;
 
     fetch(`${API_ROUTE}/boxes/${boxId}`, {
       method: 'POST',

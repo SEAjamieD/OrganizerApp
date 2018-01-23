@@ -20,27 +20,34 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
     }
   }
 
-
   componentWillMount() {
     const boxId = this.props.navigation.state.params.boxId
-    this.setState({boxId: boxId});
 
     fetch(`${API_ROUTE}/boxes/${boxId}`)
       .then(res => res.json())
       .then(data => {
-        // const list = Object.entries(data.contents).map(array => [array[0], array[1].itemName])
-        const list = data.contents.itemName;
-        console.log('list: ' + list)
-        this.setState({
-          list: [...list],
-          boxName: data.boxName,
-        })
-      })
-  }
+        if (data.contents === false) {
+          let list = [];
+          this.setState({
+            list: [...list],
+            boxName: data.boxName,
+            boxId: boxId
+          })
+        } else {
+          let unformedList = data.contents
+          let list = [];
+            for ( var i in unformedList) {
+              list.push(unformedList[i].itemName)
+            }
 
-  componentDidMount() {
-    console.log(this.state.boxId);
-  }
+          this.setState({
+            list: [...list],
+            boxName: data.boxName,
+            boxId: boxId
+          })
+        }
+      })
+  } //end componentWillMount
 
 
   render() {
@@ -66,7 +73,7 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
               data={this.state.list}
               renderItem={({item}) => (
                 <View style={styles.listItem}>
-                  <Text key={item[0]} style={styles.listText}>{item[1]}</Text>
+                  <Text key={item[0]} style={styles.listText}>{item}</Text>
                 </View>
               )}
               keyExtractor={(item, index) => index} />
