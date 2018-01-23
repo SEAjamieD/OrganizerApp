@@ -37,7 +37,7 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
           let unformedList = data.contents
           let list = [];
             for ( var i in unformedList) {
-              list.push(unformedList[i].itemName)
+              list.push([unformedList[i].itemName,unformedList[i].image ])
             }
 
           this.setState({
@@ -73,7 +73,11 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
               data={this.state.list}
               renderItem={({item}) => (
                 <View style={styles.listItem}>
-                  <Text style={styles.listText}>{item}</Text>
+                  <Text style={styles.listText}>{item[0]}</Text>
+                  <Image
+                  style={styles.image}
+                  source={{uri: 'data:image/jpeg;base64,'+item[1]}}
+                  />
                 </View>
               )}
               keyExtractor={(item, index) => index} />
@@ -107,10 +111,11 @@ const styles = StyleSheet.create({
   },
   listItem: {
     width: width - 40,
-    height: height / 12,
+    height: height / 8,
     backgroundColor: 'white',
     alignSelf: 'center',
-    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
     shadowColor: '#333333',
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.2,
@@ -124,5 +129,12 @@ const styles = StyleSheet.create({
     textShadowColor: 'rgba(51, 51, 51, .2)',
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 4,
+  },
+  image: {
+    position: 'absolute',
+    right: 4,
+    top: 2,
+    height: height/8 - 4,
+    width: width/4,
   }
 })
