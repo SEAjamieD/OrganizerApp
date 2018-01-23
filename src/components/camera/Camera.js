@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import { StyleSheet, Dimensions, View, TouchableHighlight } from 'react-native';
 import Camera from 'react-native-camera';
 
@@ -14,8 +14,9 @@ export default class CameraScreen extends Component<{}> {
 
   takePicture = () => {
     const options = {};
+    const boxId = this.props.navigation.state.params.boxId;
     this.camera.capture()
-      .then((data) => this.props.navigation.navigate('PhotoReviewContainer', {currentSnapUri: data.path}))
+      .then((data) => this.props.navigation.navigate('PhotoReviewContainer', {currentSnapUri: data.path, boxId: boxId}))
       .catch(err => console.error(err));
   }
 

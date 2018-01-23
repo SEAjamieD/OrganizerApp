@@ -15,19 +15,22 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
     super();
     this.state = {
       boxName: '',
-      list: []
+      list: [],
+      boxId: ''
     }
   }
 
 
   componentWillMount() {
     const boxId = this.props.navigation.state.params.boxId
+    this.setState({boxId: boxId});
 
     fetch(`${API_ROUTE}/boxes/${boxId}`)
       .then(res => res.json())
       .then(data => {
-        const list = Object.entries(data.contents).map(array => [array[0], array[1].itemName])
-        console.log(list)
+        // const list = Object.entries(data.contents).map(array => [array[0], array[1].itemName])
+        const list = data.contents.itemName;
+        console.log('list: ' + list)
         this.setState({
           list: [...list],
           boxName: data.boxName,
@@ -36,7 +39,7 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
   }
 
   componentDidMount() {
-    console.log(this.state.list)
+    console.log(this.state.boxId);
   }
 
 
@@ -52,7 +55,7 @@ export default class ExistingSingleBoxContainer extends Component<{}> {
           <Text h2 style={styles.headerText}>{this.state.boxName} box</Text>
         </View>
 
-        <AddItemPlus navigation={navigation} />
+        <AddItemPlus navigation={navigation} boxId={this.state.boxId} />
 
         <XboxOut navigation={navigation} />
 

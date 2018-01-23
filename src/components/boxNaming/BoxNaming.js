@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TextInput, Dimensions } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { API_ROUTE } from '../../../fireRoutes';
 import BackArrow from './BackArrow';
 
 const height = Dimensions.get('window').height
@@ -21,10 +22,9 @@ export default class BoxNaming extends Component<{}> {
 
   }
 
-  /////////// this makes the box on the fake json-server
   addToList() {
   if (this.state.boxName !== '') {
-    fetch('https://us-central1-fireorganizer-9e2d4.cloudfunctions.net/boxes', {
+    fetch(`${API_ROUTE}/boxes`, {
       method: 'POST',
       body: JSON.stringify({
         boxName: this.state.boxName.toLowerCase()
