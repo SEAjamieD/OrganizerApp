@@ -16,7 +16,7 @@ export default class CameraScreen extends Component<{}> {
     const options = {};
     const boxId = this.props.navigation.state.params.boxId;
     this.camera.capture()
-      .then((data) => this.props.navigation.navigate('PhotoReviewContainer', {currentSnapUri: data.path, boxId: boxId}))
+      .then((data) => this.props.navigation.navigate('PhotoReviewContainer', {currentSnapUri: data.data, boxId: boxId}))
       .catch(err => console.error(err));
   }
 
@@ -30,7 +30,7 @@ export default class CameraScreen extends Component<{}> {
               this.camera = cam;
             }}
             style={styles.preview}
-            captureTarget={Camera.constants.CaptureTarget.disk}
+            captureTarget={Camera.constants.CaptureTarget.memory}
             aspect={Camera.constants.Aspect.fill}>
 
             <BackArrow navigation={navigation} />

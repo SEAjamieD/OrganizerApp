@@ -12,9 +12,9 @@ export default class PhotoReviewContainer extends Component<{}> {
 
 
   returnToBox = () => {
-    let boxId = this.props.navigation.state.params.boxId;
-
     this.storeImage();
+
+    let boxId = this.props.navigation.state.params.boxId;
     this.props.navigation.navigate('ExistingBox', {boxId: boxId});
   }
 
@@ -28,17 +28,18 @@ export default class PhotoReviewContainer extends Component<{}> {
       method: 'POST',
       body: JSON.stringify({
         contents: {
-            itemName: 'name coming',
+            itemName: '1name coming',
             image: image,
             tags: false
           }
       }),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-type': 'application/json'
       }
     })
   }
-
+  
+// source={{uri: this.props.navigation.state.params.currentSnapUri}}
 
   render() {
 
@@ -50,7 +51,7 @@ export default class PhotoReviewContainer extends Component<{}> {
         <View style={styles.imageShadow}>
           <Image
               style={styles.image}
-              source={{uri: this.props.navigation.state.params.currentSnapUri}}
+              source={{uri: 'data:image/jpeg;base64,'+this.props.navigation.state.params.currentSnapUri}}
               />
         </View>
 

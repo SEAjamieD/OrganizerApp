@@ -35,7 +35,6 @@ export default class BoxNaming extends Component<{}> {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.props.navigation.navigate('ExistingBox', {boxName: this.state.boxName, boxId: data.id});
       })
     }
