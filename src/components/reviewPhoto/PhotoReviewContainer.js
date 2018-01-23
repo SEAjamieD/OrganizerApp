@@ -38,8 +38,6 @@ export default class PhotoReviewContainer extends Component<{}> {
       }
     })
   }
-  
-// source={{uri: this.props.navigation.state.params.currentSnapUri}}
 
   render() {
 
