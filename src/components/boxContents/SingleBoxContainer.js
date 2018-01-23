@@ -13,7 +13,7 @@ export default class SingleBoxContainer extends Component<{}> {
   constructor() {
     super();
     this.state = {
-      list: []
+      list: [],
     }
   }
 

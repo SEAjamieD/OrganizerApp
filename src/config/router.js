@@ -1,6 +1,7 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
+import Login from '../components/login/Login';
 import Home from '../components/home/HomeContainer';
 import BoxNaming from '../components/boxNaming/BoxNaming';
 import SingleBox from '../components/boxContents/SingleBoxContainer';
@@ -11,7 +12,12 @@ import PhotoReviewContainer from '../components/reviewPhoto/PhotoReviewContainer
 
 export const Stack = StackNavigator(
   {
-    Home: {screen: Home},
+    // Login: {screen: Login,
+    //       navigationOptions: {gesturesEnabled: false}
+    //     },
+    Home: {screen: Home,
+          navigationOptions: {gesturesEnabled: false}
+        },
     BoxNaming: {screen: BoxNaming},
     SingleBox: {screen: SingleBox,
           navigationOptions: {gesturesEnabled: false}

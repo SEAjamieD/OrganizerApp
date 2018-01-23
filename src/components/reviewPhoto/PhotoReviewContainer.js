@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Image, Dimensions, TouchableHighlight, Text } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { API_ROUTE } from '../../../fireRoutes';
 
 
 const height = Dimensions.get('window').height;
@@ -10,12 +11,33 @@ const setWidth = width - 40;
 export default class PhotoReviewContainer extends Component<{}> {
 
 
-/// needs fix -> double go back is not cool
   returnToBox = () => {
-    this.props.navigation.goBack(null);
-    this.props.navigation.goBack(null);
+    this.storeImage();
+
+    let boxId = this.props.navigation.state.params.boxId;
+    this.props.navigation.navigate('ExistingBox', {boxId: boxId});
   }
 
+
+  storeImage = () => {
+
+    let boxId = this.props.navigation.state.params.boxId;
+    let image = this.props.navigation.state.params.currentSnapUri;
+
+    fetch(`${API_ROUTE}/boxes/${boxId}`, {
+      method: 'POST',
+      body: JSON.stringify({
+        contents: {
+            itemName: '1name coming',
+            image: image,
+            tags: false
+          }
+      }),
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+  }
 
   render() {
 
@@ -27,7 +49,7 @@ export default class PhotoReviewContainer extends Component<{}> {
         <View style={styles.imageShadow}>
           <Image
               style={styles.image}
-              source={{uri: this.props.navigation.state.params.currentSnapUri}}
+              source={{uri: 'data:image/jpeg;base64,'+this.props.navigation.state.params.currentSnapUri}}
               />
         </View>
 

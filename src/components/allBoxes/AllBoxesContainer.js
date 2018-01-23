@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TextInput, Dimensions, TouchableHighlight, Image, FlatList } from 'react-native';
+import { API_ROUTE } from '../../../fireRoutes';
 import LinearGradient from 'react-native-linear-gradient';
 
 const height = Dimensions.get('window').height;
@@ -19,18 +20,14 @@ export default class AllBoxesContainer extends Component<{}> {
 
 
   componentWillMount() {
-  fetch('http://localhost:3000/box', {
-    headers: {
-      'Accept': 'application/json'
-    }
-  })
-  .then(res => res.json())
-  .then(data => {
-    const list = [...data]
-    this.setState({
-      list: list,
+  fetch(`${API_ROUTE}/boxes`)
+    .then(res => res.json())
+    .then(data => {
+      let list = Object.entries(data).map((array) => {
+        return [array[0],array[1].boxName]
+      });
+      this.setState({list: [...list]})
     })
-  })
   }
 
   goToBox = (event) => {
@@ -59,8 +56,8 @@ export default class AllBoxesContainer extends Component<{}> {
               style={styles.flatList}
               data={this.state.list}
               renderItem={({item}) => (
-                <TouchableHighlight style={styles.listItem} onPress={ this.goToBox.bind(this, item.id)}>
-                  <Text style={styles.listText}>{item.boxName}</Text>
+                <TouchableHighlight style={styles.listItem} onPress={ this.goToBox.bind(this, item[0])}>
+                  <Text style={styles.listText}>{item[1]}</Text>
                 </TouchableHighlight>
               )}
               keyExtractor={(item, index) => index} />

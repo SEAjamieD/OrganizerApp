@@ -4,6 +4,11 @@
 
 db.json
 
+#env
+.env
+FirebaseKeys.js
+fireRoutes.js
+
 # Xcode
 #
 build/

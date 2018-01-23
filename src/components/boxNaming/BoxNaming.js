@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TextInput, Dimensions } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { API_ROUTE } from '../../../fireRoutes';
 import BackArrow from './BackArrow';
 
 const height = Dimensions.get('window').height
@@ -10,21 +11,21 @@ export default class BoxNaming extends Component<{}> {
   constructor() {
     super();
     this.state = {
-      boxName: ''
+      boxName: '',
+      boxId: ''
     }
   }
 
   nameBox = () => {
     if(this.state.boxName === '') return;
     this.addToList();
-    this.props.navigation.navigate('SingleBox', {boxName: this.state.boxName});
+
   }
 
-  /////////// this makes the box on the fake json-server
   addToList() {
   if (this.state.boxName !== '') {
-    fetch('http://localhost:3000/box', {
-      method: 'post',
+    fetch(`${API_ROUTE}/boxes`, {
+      method: 'POST',
       body: JSON.stringify({
         boxName: this.state.boxName.toLowerCase()
       }),
@@ -32,6 +33,10 @@ export default class BoxNaming extends Component<{}> {
         'Content-Type': 'application/json'
       }
     })
+      .then(res => res.json())
+      .then(data => {
+        this.props.navigation.navigate('ExistingBox', {boxName: this.state.boxName, boxId: data.id});
+      })
     }
   }
 
